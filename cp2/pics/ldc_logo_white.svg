@@ -1,0 +1,22 @@
+<svg width="250" height="250" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="252" width="252" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_1" d="m66.3122,56.80109l-29.86498,61.08478l29.86498,61.08473l-17.06753,34.93012l-46.93248,-96.01484l46.93248,-96.02218" stroke-width="1.5" stroke="#000" fill="#ffffff"/>
+  <path transform="rotate(9.84776, 92.02, 116.442)" id="svg_3" d="m84.51997,12.44198l15,0l0,208l-15,0l0,-208z" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#ffffff"/>
+  <ellipse ry="9.5" rx="9.5" id="svg_4" cy="198.5" cx="107" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#ffffff"/>
+  <ellipse ry="9.5" rx="9.5" id="svg_6" cy="198.5" cx="133" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#ffffff"/>
+  <ellipse ry="9.5" rx="9.5" id="svg_7" cy="198.5" cx="163" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#ffffff"/>
+  <path transform="rotate(179.952, 213.312, 119.882)" id="svg_8" d="m245.3122,58.80109l-29.86498,61.08478l29.86498,61.08473l-17.06753,34.93012l-46.93248,-96.01484l46.93248,-96.02218" stroke-width="1.5" stroke="#000" fill="#ffffff"/>
+  <text transform="matrix(3.03578, 0, 0, 3.03578, -263.077, -166.11)" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_9" y="94.60869" x="121.21793" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#ff0000">L</text>
+  <text transform="matrix(2.65986, 0, 0, 2.65986, -234.085, -231.402)" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_10" y="143.71201" x="131.85044" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#ff7f00">D</text>
+  <text transform="matrix(2.50338, 0, 0, 2.50338, -224.911, -257.653)" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_11" y="170.08533" x="142.95949" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#00ff00">C</text>
+ </g>
+</svg>

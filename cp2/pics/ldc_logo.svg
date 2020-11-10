@@ -1,0 +1,20 @@
+<svg width="250" height="250" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="252" width="252" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_1" d="m67.94027,64.41329l-30.79826,58.96986l30.79826,58.9698l-17.60089,33.72075l-48.39912,-92.69054l48.39912,-92.69762" stroke-width="1.5" stroke="#000" fill="#000000"/>
+  <path transform="rotate(9.60287, 91.907, 124.694)" id="svg_3" d="m83.67234,25.00841l16.46921,0l0,199.37124l-16.46921,0l0,-199.37124z" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#040505"/>
+  <path transform="rotate(179.965, 315.44, 96.2108)" id="svg_4" d="m352.94027,43.49847l-34.99803,52.71548l34.99803,52.71543l-20.00101,30.14431l-54.999,-82.85973l54.999,-82.86606" stroke-width="1.5" stroke="#000" fill="#040505"/>
+  <ellipse ry="10.5" rx="10.5" id="svg_5" cy="179.5" cx="114" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#080a0a"/>
+  <ellipse ry="10.5" rx="10.5" id="svg_6" cy="178.5" cx="176" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#040505"/>
+  <ellipse ry="10.5" rx="10.5" id="svg_8" cy="178.5" cx="148" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#0b0c0c"/>
+  <text transform="matrix(2.74037, 0, 0, 2.74037, -369.744, -99.1462)" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_10" y="84.7598" x="175.75541" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#ff0000">L</text>
+  <text style="cursor: move;" transform="matrix(2.43357, 0, 0, 2.29605, -320.191, -128.512)" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_11" y="124.12191" x="183.17463" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#ff7f00">D</text>
+  <text transform="matrix(2.24664, 0, 0, 2.24664, -369.116, -179.222)" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_12" y="139.83079" x="228.0365" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#00ff00">C</text>
+  <path transform="rotate(178.581, 216.94, 129.38)" id="svg_15" d="m249.94027,70.41329l-30.79826,58.96986l30.79826,58.9698l-17.60089,33.72075l-48.39912,-92.69054l48.39912,-92.69762" stroke-width="1.5" stroke="#000" fill="#000000"/>
+ </g>
+</svg>

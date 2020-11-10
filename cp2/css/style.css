@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+body
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: bisque;
+    background: linear-gradient(to right,bisque, yellow, orange);
+    background: radial-gradient(bisque, grey, white);
+    background: url(../pics/vslogo.png) no-repeat top right, url(../pics/linkedin.png) no-repeat bottom right, radial-gradient(bisque, grey, white);
+    margin-bottom: 60px;
+}
+
+h1, h2, h3, h4
+{
+    font-family: Lobster, sans-serif;
+}
+
+h1
+{
+    color: red;
+}
+ 
+#top
+{
+    text-shadow: 0 0 10px yellow;
+}
+
+figure > img
+{
+    border-radius: 25% 10% 25% 10%;
+    box-shadow: 5px 5px 12px blue, -5px -5px 12px red;
+    margin-bottom: 10px;
+}
+
+pre
+{
+    color: blue;
+    border-left: blue 0.2rem solid;
+    margin-left: 2.2rem;
+    padding-left: 2.2rem;    
+}
+
+dt
+{
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: .5rem 0;
+}
+
+p, dd
+{
+    text-align: justify;
+}
+
+table
+{
+    width: 100%;
+}
+
+table, th, td
+{
+    border: black solid 1px;
+}
+
+tbody tr:nth-child(even)
+{
+background-color: #ddd;
+}
+
+tbody tr:hover
+{
+    background-color: gold;
+    cursor: pointer;
+}
+
+thead, tfoot
+{
+    background-color: darkgray;
+    color: white;
+}
+
+table:first-of-type td:last-child
+{
+    text-align: right;
+}
+
+tbody td:nth-child(2)
+{
+    text-align: center;
+}
+
+/*
+tbody tr td:nth-child(3)
+{
+    text-align: right;
+} */
+
+li ol
+{
+    list-style-type: lower-roman;
+}
+li  ol ul li
+{
+    list-style-image: url(../pics/bluebullet-small.png);
+}
+
