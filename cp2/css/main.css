@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
 html, body
 {
     width: 100%;
     height: 100%;
+    color: white;
 }
 
 *
@@ -13,30 +14,34 @@ html, body
 
 body
 {
-    font-family: Tahoma, sans-serif;
+    font-family: "Alfa Slab One", Tahoma, sans-serif;
     background-image: url(../pics/binary-code.jpg);
     background-size: cover;
+    background-attachment: fixed;
+    
 }
 
 /* WRAPPER */
 
 #wrapper 
 {
-    background-color: rgba(125, 125, 125, 0.5);
+    background-color: rgba(125, 125, 125, 0);
     height: 100%;
 }
 
 #wrapper>*
 {
     margin: 0rem 0;
+    
 }
 
-/* EN TETE INDEX */
+/* EN TETE */
 
 #myheader
 {
     display: flex;
-    font-family: 'Lobster', Tahoma, sans-serif;
+    font-family: 'Alfa Slab One', Tahoma, sans-serif;
+    margin-bottom: 100px;
 }
 
 #myheader div
@@ -57,23 +62,54 @@ body
 
 #name
 {
-    width: 80%;
+    width: 100%;
     color: white;
+}
+
+@keyframes neon
+{
+    from {
+        text-shadow: 0 0 2rem rgb(160, 13, 228);
+    }
+    20% {
+        text-shadow: 0 0 2rem green;
+        transform: rotate(5deg);
+    } 
+    40% {
+        text-shadow: 0 0 2rem yellow;
+    }
+    60% {
+        text-shadow: 0 0 2rem orange;
+        transform: rotate(0deg);
+    }
+    60% {
+        text-shadow: 0 0 2rem orange;
+    }
+    to {
+        text-shadow: 0 0 2rem red;
+        transform: rotate(-5deg);
+    }
 }
 
 #name h1
 {
     height: 12rem;
     line-height: 12rem;
+    animation: neon 10s infinite alternate;
 }
 
 h1
 {
-    font-size: 4rem;
+    font-size: 5rem;
+    text-shadow: white 1.5rem 0 .5rem;
 }
 
 
 /* MENU */
+#menu
+{
+    margin-bottom: 100px;
+}
 
 #menu .items
 {
@@ -103,6 +139,187 @@ h1
     border: solid .2rem darkblue;
     color:darkblue;
 }
+
+/* EMPLOYES */
+
+#emps
+{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.emp
+{
+    text-align: center;
+    margin: .5rem 0;
+    width: 200px;
+}
+
+.member
+{
+    border-style: ridge;
+    border-width: .75rem;
+    border-radius: 50%;
+    width: 150px;
+    transition: all 1s;
+}
+
+.girl
+{
+    border-color: pink;
+}
+
+.boy
+{
+    border-color: lightblue;
+}
+
+.member:hover
+{
+    border-color: black;
+}
+
+.girl:hover
+{
+    transform: rotate(-30deg) scale(1.2);
+}
+
+.boy:hover
+{
+    transform: rotate(30deg) scale(1.2);
+   
+}
+
+.name
+{
+    font-size: large;
+    font-weight: bold;
+    color: white;
+}
+
+/* SECTION MEDIA */
+
+#media
+{
+    display: flex;
+    /* align-items: flex-start; */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-right: 50px;
+    color: white;
+}
+
+#media .interview
+{
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    width: 33%;
+    height: 33%;
+}
+
+.interview
+{
+    display: block;
+}
+
+.interview h2
+{
+    margin: 25px 0;
+    text-align: center;
+}
+
+#media p
+{
+    text-align: justify;
+    margin: 25px 0;
+}
+
+.interview a
+{
+    display: block;
+    margin-bottom: 10px;
+    color: white;
+}
+
+#video
+{
+    top: 0px;
+}
+
+/* FOOTER */
+
+hr
+{
+    height: 4px;
+    background-color: white;
+}
+
+#bottom
+{
+    color: white;
+    font-family: sans-serif;
+    background-color: black;    
+}
+
+#bottom ul
+{
+    list-style-type: none;
+    padding: 0;
+}
+
+#bottom .level1
+{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+#bottom .level1>li 
+{
+    margin: 1rem 0;
+    padding: 0 2rem;
+    border-left: dotted white .25rem;
+}
+
+#bottom .level1>li:first-child
+{
+    border-left: none;
+}
+
+#bottom h2
+{
+    font-variant: small-caps;
+}
+
+#bottom a
+{
+    color: white;
+    text-decoration: none;
+}
+
+/* FORMULAIRE */
+
+form div
+    {
+    margin: 1rem 0;
+}
+
+form div>*:first-child
+{
+    display: inline-block;
+    width: 25%;
+    font-weight: bold;
+    text-align: right;
+}
+
+
 
 
 
