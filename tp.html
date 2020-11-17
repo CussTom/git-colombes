@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Flexbox</title>
+
+<style>
+    *{
+        border: 1px solid red;
+        margin: 0;
+        padding: 0;
+    }
+
+    body{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    body > *
+    {
+        flex: 1 1 0em;
+    }
+    header, footer
+    {
+        flex-basis: 100%;
+    }
+    header
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 10vh;
+    }
+    header > *{
+        flex-basis: 6em;
+    }
+
+    section{
+        display: flex;
+        /* align-items: center; */
+    }
+    section > *
+    {
+        flex: 1 1 0em;
+    }
+    nav
+    {
+        flex-grow: 15;
+    }
+    main
+    {
+        display: flex;
+        flex-wrap: wrap;
+        flex-grow: 60;
+        justify-content: space-around;
+        /* align-content: space-between; */
+    }
+    aside
+    {
+        flex-grow: 25;
+        align-self: flex-start;
+    }
+
+    footer
+    {
+        text-align: center;
+        height: 5vh;
+    }
+
+    main > div
+    {
+        width: 18vw;
+        margin-top: 1vh;
+        /* height: 10vh; */
+    }
+ 
+</style>
+</head>
+
+<body>
+<header>
+    <img src="cp2/pics/ldc_logo_black.svg" alt="logo darons codeurs">
+    <h1>TITRE</h1>
+    <a href="https://www.google.fr">Connexion</a>
+</header>
+
+<section>
+    <nav>
+        <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Notre équipe</a></li>
+            <li><a href="#">Inscription</a></li>
+            <li><a href="#">Réalisations</a></li>
+            <li><a href="#">Documentations</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div>
+            <figure>
+                <img src="cp2/pics/laptop.jpg" alt="laptop">
+                <figcaption>Laptotp</figcaption>
+            </figure>
+        </div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus error totam ipsa soluta hic voluptatibus eveniet porro dolorum corporis enim veniam veritatis harum ducimus accusantium, dolorem consequatur nemo atque. Iure.Sapiente dolorum possimus quam. Suscipit aperiam, eligendi eveniet id pariatur autem at reprehenderit molestiae iure quo libero officia corporis rem esse quos perferendis, ab nihil sint iste facere, eos dolor?
+        
+        </div>
+        <div>
+            <figure>
+                <img src="cp2/pics/linkedin.png" alt="social media">
+                <figcaption>Social</figcaption>
+            </figure>
+        </div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus error totam ipsa soluta hic voluptatibus eveniet porro dolorum corporis enim veniam veritatis harum ducimus accusantium, dolorem consequatur nemo atque. Iure.Sapiente dolorum possimus quam. Suscipit aperiam, eligendi eveniet id pariatur autem at reprehenderit molestiae iure quo libero officia corporis rem esse quos perferendis, ab nihil sint iste facere, eos dolor?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus error totam ipsa soluta hic voluptatibus eveniet porro dolorum corporis enim veniam veritatis harum ducimus accusantium, dolorem consequatur nemo atque. Iure.Sapiente dolorum possimus quam. Suscipit aperiam, eligendi eveniet id pariatur autem at reprehenderit molestiae iure quo libero officia corporis rem esse quos perferendis, ab nihil sint iste facere, eos dolor?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus error totam ipsa soluta hic voluptatibus eveniet porro dolorum corporis enim veniam veritatis harum ducimus accusantium, dolorem consequatur nemo atque. Iure.Sapiente dolorum possimus quam. Suscipit aperiam, eligendi eveniet id pariatur autem at reprehenderit molestiae iure quo libero officia corporis rem esse quos perferendis, ab nihil sint iste facere, eos dolor?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus error totam ipsa soluta hic voluptatibus eveniet porro dolorum corporis enim veniam veritatis harum ducimus accusantium, dolorem consequatur nemo atque. Iure.Sapiente dolorum possimus quam. Suscipit aperiam, eligendi eveniet id pariatur autem at reprehenderit molestiae iure quo libero officia corporis rem esse quos perferendis, ab nihil sint iste facere, eos dolor?</div>
+        <div>
+            <figure>
+                <img src="cp2/pics/linkedin.png" alt="social media">
+                <figcaption>Social</figcaption>
+            </figure>
+        </div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus error totam ipsa soluta hic voluptatibus eveniet porro dolorum corporis enim veniam veritatis harum ducimus accusantium, dolorem consequatur nemo atque. Iure.Sapiente dolorum possimus quam. Suscipit aperiam, eligendi eveniet id pariatur autem at reprehenderit molestiae iure quo libero officia corporis rem esse quos perferendis, ab nihil sint iste facere, eos dolor?</div>
+        <div>
+            <figure>
+                <img src="cp2/pics/linkedin.png" alt="social media">
+                <figcaption>Social</figcaption>
+            </figure>
+        </div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus error totam ipsa soluta hic voluptatibus eveniet porro dolorum corporis enim veniam veritatis harum ducimus accusantium, dolorem consequatur nemo atque. Iure.Sapiente dolorum possimus quam. Suscipit aperiam, eligendi eveniet id pariatur autem at reprehenderit molestiae iure quo libero officia corporis rem esse quos perferendis, ab nihil sint iste facere, eos dolor?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus error totam ipsa soluta hic voluptatibus eveniet porro dolorum corporis enim veniam veritatis harum ducimus accusantium, dolorem consequatur nemo atque. Iure.Sapiente dolorum possimus quam. Suscipit aperiam, eligendi eveniet id pariatur autem at reprehenderit molestiae iure quo libero officia corporis rem esse quos perferendis, ab nihil sint iste facere, eos dolor?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus error totam ipsa soluta hic voluptatibus eveniet porro dolorum corporis enim veniam veritatis harum ducimus accusantium, dolorem consequatur nemo atque. Iure.Sapiente dolorum possimus quam. Suscipit aperiam, eligendi eveniet id pariatur autem at reprehenderit molestiae iure quo libero officia corporis rem esse quos perferendis, ab nihil sint iste facere, eos dolor?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus error totam ipsa soluta hic voluptatibus eveniet porro dolorum corporis enim veniam veritatis harum ducimus accusantium, dolorem consequatur nemo atque. Iure.Sapiente dolorum possimus quam. Suscipit aperiam, eligendi eveniet id pariatur autem at reprehenderit molestiae iure quo libero officia corporis rem esse quos perferendis, ab nihil sint iste facere, eos dolor?</div>
+        <div>
+            <figure>
+                <img src="cp2/pics/linkedin.png" alt="social media">
+                <figcaption>Social</figcaption>
+            </figure>
+        </div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus error totam ipsa soluta hic voluptatibus eveniet porro dolorum corporis enim veniam veritatis harum ducimus accusantium, dolorem consequatur nemo atque. Iure.Sapiente dolorum possimus quam. Suscipit aperiam, eligendi eveniet id pariatur autem at reprehenderit molestiae iure quo libero officia corporis rem esse quos perferendis, ab nihil sint iste facere, eos dolor?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus error totam ipsa soluta hic voluptatibus eveniet porro dolorum corporis enim veniam veritatis harum ducimus accusantium, dolorem consequatur nemo atque. Iure.Sapiente dolorum possimus quam. Suscipit aperiam, eligendi eveniet id pariatur autem at reprehenderit molestiae iure quo libero officia corporis rem esse quos perferendis, ab nihil sint iste facere, eos dolor?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus error totam ipsa soluta hic voluptatibus eveniet porro dolorum corporis enim veniam veritatis harum ducimus accusantium, dolorem consequatur nemo atque. Iure.Sapiente dolorum possimus quam. Suscipit aperiam, eligendi eveniet id pariatur autem at reprehenderit molestiae iure quo libero officia corporis rem esse quos perferendis, ab nihil sint iste facere, eos dolor?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus error totam ipsa soluta hic voluptatibus eveniet porro dolorum corporis enim veniam veritatis harum ducimus accusantium, dolorem consequatur nemo atque. Iure.Sapiente dolorum possimus quam. Suscipit aperiam, eligendi eveniet id pariatur autem at reprehenderit molestiae iure quo libero officia corporis rem esse quos perferendis, ab nihil sint iste facere, eos dolor?</div>
+        <div>
+            <figure>
+                <img src="cp2/pics/linkedin.png" alt="social media">
+                <figcaption>Social</figcaption>
+            </figure>
+        </div>
+    </main>
+    <aside>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente qui deleniti illum iusto exercitationem? Laudantium suscipit deleniti sapiente tenetur placeat quidem neque aut! Labore optio ad dolore voluptates autem ipsam.Quidem, tenetur hic quibusdam esse quia ex eveniet possimus magnam iste error animi nobis ipsa obcaecati assumenda vel porro harum nihil debitis est at optio natus eum officiis perspiciatis! Numquam?</aside>
+</section>
+
+<footer>
+    <p>&copy; Flexbox-GRETA 92 2020-21</p>
+</footer>
+
+</body>
+</html>

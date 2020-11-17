@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbo - ex3</title>
+
+<style>
+    section{
+        display: flex;
+        flex-wrap: wrap;
+        height: 500px;
+        align-content: center;
+        border: 1px solid red;
+    }
+    section > div{
+        border: 1px solid red;
+        flex: 1 1 0em;
+    }
+
+    section > div:last-child
+    {
+        flex-basis: 90%;
+    }
+</style>
+
+</head>
+<body>
+    <section>
+        <div>lorem</div>
+        <div>Lorem ipsum dolor</div>
+        <div>Lorem ipsum dolor sit amet</div>
+    </section>
+</body>
+</html>

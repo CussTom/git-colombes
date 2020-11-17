@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox - exemple</title>
+</head>
+
+<style>
+    section{
+        display: flex;
+        align-items: center;
+        border: 1px solid rgb(10, 240, 10);
+    }
+    section>div {
+        background-color: yellow;
+        border: solid 1px red;
+        flex: 1 1 0em;
+        /* flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: 0em; */
+    }
+
+section > div:first-child
+{
+    flex-shrink: 0;
+    order: 3;
+    }
+section > div:nth-child(2){
+   flex-grow: 2;
+    align-self: flex-start;
+    order: 2;
+}
+section > div:last-child
+{
+    order: 1;
+}
+
+
+</style>
+<body>
+    
+<section>
+    <div>Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit, amet consectetur adipisicing elit. adipisicing elit. Consequuntur, necessitatibus.</div>
+    <div>Lorem ipsum</div>
+    <div>Lorem </div>
+</section>
+
+
+
+</body>
+</html>
