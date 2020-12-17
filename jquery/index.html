@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery - Paramètrage dans le html</title>
+    <!--Pour les composants jQuery-->
+    <link rel="stylesheet" href="dist/css/jquery-ui.css">
+    <!--Si j'ai choisis un thème en particulier-->
+    <link rel="stylesheet" href="dist/css/jquery-ui.theme.css">
+    <link rel="stylesheet" href="dist/css/jquery-ui.structure.css">
+    <link rel="stylesheet" href="dist/css/jquery-ui.theme.css">
+     <!--Ma feuille de style perso-->
+     <link rel="stylesheet" href="css/style.css">
+    <script src="dist/js/jquery.min.js"></script>
+    <script src="dist/js/jquery-ui.min.js"></script> 
+    </head>
+<body>
+    <div id="myConteneur">
+        <ul>
+            <li><a href="#Accueil">Accueil</a></li>
+            <li><a href="#Presentation">Présentation</a></li>
+            <li><a href="#Equipe">Equipe</a></li>
+            <li><a href="#">Notre métier</a></li>
+        </ul>
+        <section id="Accueil">
+            <p>Accueil - Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        </section>
+        <section id="Presentation">
+            <p> Présentation - Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        </section>
+        <section id="Equipe">
+            <p>Equipe - Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </section>
+    </div>
+    <script>
+        // appel des fonctions de jQuery
+        $(function(){
+        // On indique a jQuery le BLOC qui contient les onglets
+        var myOnglets=$("#myConteneur").tabs();
+        // On appelle la CLASS jQuery UI des onglets
+        myOnglets.find(".ui-tabs-nav").sortable({
+        // On définie l'axe horizontal
+        axis: "x",
+        stop: function(){
+            tabs.myOnglets("refresh");
+            }
+            });
+        });
+    </script>
+</body>
+</html>

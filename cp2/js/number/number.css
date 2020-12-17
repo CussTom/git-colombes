@@ -1,0 +1,27 @@
+body{
+    text-align: center;
+    background-color: rgba(60, 59, 56, 0.975);
+    color: #ffffff;
+    
+}
+
+h1{
+    font-size: 3rem;
+    padding-bottom : 50px;   
+}
+
+p{
+    font-size: 1.5rem;
+    padding-bottom: 50px;
+}
+
+#btn
+{
+    border: solid 1px white;
+    height: 30px;
+    font-weight: bold;
+    border-radius : 10px;
+    margin: 20px;
+}
+
+
