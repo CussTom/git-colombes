@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thomas CUSSE - web developpeur</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar fixed-top navbar-expand-md navbar-dark scroling-navbar">
+            <span class="navbar-brand"></span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Sticky-nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="#Sticky-nav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="#about_me" class="nav-link">A propos de moi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#skills-section" class="nav-link">Compétences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#carousel" class="nav-link">Réalisations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#figma-frame" class="nav-link">Maquettage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#location" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="col-md-12 text-center" id="name_animation">
+                <img id="banner" class="img-frame" src="images/orange_banner.png" alt="">
+                <h2 id="name">Thomas CUSSE</h2>
+                <div id="effect"></div>
+        </div>
+        <hr>
+        <div id="about_me">
+            <div id="image-div" class="col-md-3 d-flex align-item-center justify-content-center">
+                <a id="pic" class="pic-frame"><img src="images/photo_color.png" alt="thomas_cusse"></a>
+            </div>
+            <div id="myStory" class="col-md-12 text-center">
+                <p>Après des études de commerce, et 10 ans d'expérience, notamment dans l'automobile, j'ai décidé de me reconvertir vers la programmation informatique, et plus particulièrement le <strong>développement web</strong>, un domaine que j'ai récemment découvert avec beaucoup d'enthousiasme.</p>   
+                <p>Je suis actuellement une formation de développeur <strong>web & web mobile</strong> pendant 8 mois afin d'apprendre les langages de programmation du web, du maquettage et design, avec une mise en pratique des compétences acquises lors d'un stage en entreprise.</p>
+                <a id="cv" class="btn btn-link" href="docs/CV_Thomas_CUSSE.pdf" target="blank"><img id="btn-cv" class="btn btn-link" src="images/cv_button.svg" alt="CV"></a>
+            </div>
+        </div>
+        <hr>
+
+       <section id="skills-section" class="row">
+            <div class="col-md-5">
+                <div id="skills-list">
+                    <h2 id="title-skills-part1" class="skills-list-title text-center">Outils de travail</h2>
+                    <ul class="rounded-list">
+                        <li>Maitrise des environnements <strong>MacOS</strong> et <strong>Linux</strong></li>
+                        <li>Versionning et collaboration en équipe avec  <strong>Git</strong> et <strong>GitHub</strong></li>
+                        <li>Gestion des <strong>Media Queries</strong> pour le responsive design</li>
+                        <li>Maquettage avec <strong>Figma</strong></li>
+                    </ul>
+                    <h2 id="title-skills-part2" class="skills-list-title text-center">Soft skills</h2>
+                    <ul class="rounded-list">
+                        <li>Travail en équipe intra et inter services</li>
+                        <li>Respect d'un cahier des charges</li>
+                        <li>Présentation orale de projets auprès d'une équipe, de clients</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="skills-charts" class="col-md-7">
+                <div class="skills-chart">
+                    <h2 id="h2-skill-list-title" class="skills-list-title text-center">Langages & CMS</h2>
+                    <p class="font-weight-bold">HTML/CSS</p>
+                    <div class="progress">
+                        <div class="progress-bar-striped bar-75" data-percent="75%"></div>
+                    </div>
+                    <p class="font-weight-bold">Javascript</p>
+                    <div class="progress">
+                        <div class="progress-bar-striped bar-60" data-percent="60%"></div>
+                    </div>
+                    <p class="font-weight-bold">PHP</p>
+                    <div class="progress">
+                        <div class="progress-bar-striped bar-50" data-percent="50%"></div>
+                    </div>
+                    <p class="font-weight-bold">Wordpress</p>
+                    <div class="progress">
+                        <div class="progress-bar-striped bar-30" data-percent="30%"></div>
+                    </div>
+                    <p class="font-weight-bold">Shopify</p>
+                    <div class="progress">
+                        <div class="progress-bar-striped bar-20" data-percent="20%"></div>
+                    </div>
+                </div>
+                <div class="skills-chart">
+                    <h2 id="h2-skills-list-title" class="skills-list-title text-center">Frameworks et Librairies</h2>
+                    <p class="font-weight-bold">Symfony</p>
+                    <div class="progress">
+                        <div class="progress-bar-striped bar-65" data-percent="65%"></div>
+                    </div>
+                    <p class="font-weight-bold">jQuery</p>
+                    <div class="progress">
+                        <div class="progress-bar-striped bar-55" data-percent="55%"></div>
+                    </div>
+                    <p class="font-weight-bold">Bootstrap</p>
+                    <div class="progress">
+                        <div class="progress-bar-striped bar-50" data-percent="50%"></div>
+                    </div>
+                </div>
+            </div>
+       </section>
+       <hr class="hr-carousel">
+       <section id="carousel">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="images/divi.jpeg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <!-- <h5>First slide label</h5>
+                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> -->
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="images/instagram-carousel.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <!-- <h5>Second slide label</h5>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="images/instagram_carousel2.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <!-- <h5>Third slide label</h5>
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> -->
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+          </div>
+       </section>
+       <hr class="hr-figma">
+       <section id="figma-frame">
+           <h3 class="figma-title">Exemple de maquettage</h3>
+           <p class="figma-description">Reproduction d'un application de musique</p>
+        <iframe class="figma" style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FoNCMIGrTE3NLZC5U9dIijQ%2FMusic-app%3Fnode-id%3D14%253A89%26scaling%3Dmin-zoom" allowfullscreen></iframe>
+       </section>
+       <hr class="hr-location">
+       <section id="location" class="row">
+           <h3 class="location-title">Keep in touch</h3>
+           <div class="container">
+                <div class="col-md-3">
+                    <p class="mail">Vous souhaitez me contacter ?</p><br>
+                    <p class="mail-text">Adressez-moi un mail en cliquant <a href="mailto:thomas.cusse@gmail.com">ici</a>. Précisez bien votre demande, et je vous recontacte très rapidement.
+                    </p>
+                </div>
+                <div class="col-md-9">
+                    <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20987.751739792857!2d2.2872137198293263!3d48.88739904335573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fa2d50f1455%3A0x1c0b82c6e1d85200!2s75017%20Paris!5e0!3m2!1sfr!2sfr!4v1609338932449!5m2!1sfr!2sfr" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+       </section>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="credit">© 2021 Thomas-Cusse-dev.com</div>
+        </div>
+     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" ></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+
+
+</html>
