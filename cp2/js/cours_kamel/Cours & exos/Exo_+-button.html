@@ -1,0 +1,127 @@
+<!-- //     Exercice (fait office de contrôle):
+//     Créer une page html, disposant de 2 button et d'un <p>
+//     Le paragraphe affichera la valeur d'un compteur, qui sera initialement 0
+//     Le click sur le premier bouton, engendrera une décrémentation du compteur (si il était
+//     à 0, après un click il passe à -1... -1 à chaque click)
+//     Le click sur le deuxième bouton, engendrera une incrémentation du compteur ( +1)
+//     La valeur affichée par le paragraphe devra refléter la valeur du compteur.
+
+//     étapes (à titre indicatif):
+//     1- Structurer le html (un p, deux button)
+//     2- Choisir si mettre le JS dans une balise script ou dans un fichier à part.
+//     3- Créer la variable compteur
+//     4- Créer une fonction qui va incrémenter la variable lorsqu'elle est appelée et une
+//     autre autre qui va décrémenter, ce sera nos handlers
+//     5- Attacher chacun des handlers au bouton associer.
+//     6- Faire en sorte que le contenu du p soit changé à la valeur adéquate à chaque click
+//     sur un des boutons. (on pourra soit remplacer son texte, soit remplexe le p par un
+//     autre qu'on créera nous même.)
+    
+//     Vos réponses sont à envoyer par mail à: berbiche@gmail.com
+//     Début 14h, réponses attendue pour 15h00 -->
+
+<script>
+let counter = 0;
+
+document.getElementById("btnincrement").addEventListener("click", (e) => {
+  counter++;
+  display();
+});
+
+document.getElementById("btndecrement").addEventListener("click", (e) => {
+  counter--;
+  display();
+});
+
+
+document.getElementById("btnReset").addEventListener("click", (e) => {
+  counter = 0;
+  display();
+});
+
+const display = () => {
+  document.getElementById(
+    "pcontainer"
+  ).innerText = `The value of counter : ${counter}`;
+};
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 1</title>
+    <script src="Hussain_ABDUL_exercise.js" defer></script>
+    <style>
+      .center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <h1>Exercise 1</h1>
+    </div>
+    <div class="center">
+      <input
+        type="button"
+        name="Increment"
+        id="btnincrement"
+        value="Increment"
+      />
+      <input
+        type="button"
+        name="Decrement"
+        id="btndecrement"
+        value="Decrement"
+      />
+      <input
+      type="button"
+      name="Reset"
+      id="btnReset"
+      value="Reset"
+    />
+    </div>
+    <p class="center" id="pcontainer"></p>
+  </body>
+</html>
+
+// AUTRE METHODE \\
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Exo Compteur JS</title>
+		<script type="text/javascript" src="exo_01-7-12.js" defer></script>
+	</head>
+	<body>
+		<div>
+			<button class="bouton" type="button" id=boutonPlus>+1</button>
+		</div>
+		<div>
+			<button class="bouton" type="button" id=boutonMoins>-1</button>
+		</div>
+		<p id="resultatCompteur"></p>
+	</body>
+</html>
+
+<script>
+let compteur = 0; 
+const afficherCompteur = () => document.getElementById('resultatCompteur').textContent = `Le compteur est actuellement à : ${compteur}`;
+afficherCompteur();
+document.getElementById('boutonPlus').onclick = () => {
+	compteur++; 
+	afficherCompteur();
+};
+document.getElementById('boutonMoins').onclick = () => {
+	compteur--; 
+	afficherCompteur();
+};
+</script>
+
+
+
