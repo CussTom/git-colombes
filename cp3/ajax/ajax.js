@@ -41,3 +41,40 @@ window.addEventListener(
     },
     false
 );
+
+// Récupère la commune correspondant au code pays et au code postal passés en paramètres
+function getCity(){
+    document.getElementById('city').value = '';
+    let sLand = document.getElementById('land').value;
+    let sZip = document.getElementById('zip').value;
+    let oXHR = new XMLHttpRequest;
+    oXHR.open('get', 'https://api.zippopotam.us/'+ sLand + '/' + sZip, true);
+    oXHR.send();
+    oXHR.addEventListener(
+        'readystatechange',
+        function(){
+            if (oXHR.readyState === 4 && oXHR.status === 200){
+              let oData = JSON.parse(oXHR.responseText);
+                document.getElementById('city').value = oData.places[0]['place name'];
+            }
+        },
+        false
+        );
+}
+
+document.getElementById('land').addEventListener(
+    'change',
+    function(){
+       getCity();
+    },
+    false
+);
+
+
+document.getElementById('zip').addEventListener(
+    'blur',
+    function(){
+        getCity();
+    },
+    false
+);
