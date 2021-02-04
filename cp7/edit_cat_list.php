@@ -1,7 +1,23 @@
 <?php
+// Récupère la page active si existe
+if(isset($_GET['pg']) && !empty($_GET['pg'])){
+    $pg = (int) $_GET['pg'];
+} else {
+    $pg = 1;
+}
+
+// Récupère le nombre de ligne actif si existe
+if(isset($_GET['nb']) && !empty($_GET['nb'])){
+    $nb = (int) $_GET['nb'];
+} else {
+    $nb = 5;
+}
+
+
 // Ouvre la BDD en MYSQLI
+$start = ($pg -1) * $nb;
 $cnn = mysqli_connect('localhost', 'root', 'greta', 'northwind');
-$res = mysqli_query($cnn, 'SELECT * FROM categories');
+$res = mysqli_query($cnn,"SELECT * FROM categories LIMIT {$start}, {$nb}");
 ?>
 
 <!DOCTYPE html>
@@ -19,11 +35,12 @@ $res = mysqli_query($cnn, 'SELECT * FROM categories');
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="index.php">Accueil</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Liste catégories</li>
-    
-    
+    <li class="breadcrumb-item active" aria-current="page">Liste catégories</li>  
   </ol>
 </nav>
+
+<a href="edit_cat_form.php" class="btn btn-success ">Ajouter une catégorie</a>
+<hr>
 
 <table class="table table-dark table-striped">
     <thead>
@@ -42,11 +59,14 @@ $res = mysqli_query($cnn, 'SELECT * FROM categories');
         <?php
         // Liste les data
         $html = '';
-        while ($row = mysqli_fetch_assoc($res)){
+        while ($row = mysqli_fetch_row($res)){
             $html .= "<tr>";
             foreach($row as $key => $val){
+                // Lien si 1ère colonne
+                if($key === 0){
+                    $html .= '<td><a href="edit_cat_form.php?k=' . $val . '">' . $val . '</a></td>';                
                 // Si ce n'est pas du BLOB
-               if(strpos($val, 'base64,')){
+            } elseif(strpos($val, 'base64,')){
                 $html .= '<td><img src="' . $val . '" style="width:7rem"/>
                 </td>';
                } else {
@@ -59,6 +79,24 @@ $res = mysqli_query($cnn, 'SELECT * FROM categories');
         ?>
     </tbody>
 </table>
+<nav>
+    <ul class="pagination justify-content-center">
+    <?php
+    // Calcule et affiche la pagination
+    $res = mysqli_query($cnn, "SELECT COUNT(*) AS total FROM categories");
+    $row = mysqli_fetch_assoc($res);
+    $pgs = $row['total']/$nb;
+    //Affiche la pagination
+    $html = '';
+    for($i=1; $i<=$pgs;$i++){
+        $href = $_SERVER['PHP_SELF'] . '?pg=' . $i . '&nb=' . $nb;
+        $html .= '<li class="page-item ' . ($pg===$i ? 'active' : '') . '"><a class="page-link" href=" '. $href .'"> '. $i .'</a></li>'; 
+    }
+    echo $html;
+    mysqli_close($cnn);
+    ?>    
+    </ul>
+</nav>
 
 </body>
 </html>

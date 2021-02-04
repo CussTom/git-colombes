@@ -1,5 +1,5 @@
 <?php
-var_dump($_POST);
+// var_dump($_POST);
 
 // Sécurité : step 2
 // protège les saisies d'une éventuelle injection
@@ -49,20 +49,39 @@ if (isset($_FILES['PHOTO']) && $_FILES['PHOTO']['error'] !== UPLOAD_ERR_NO_FILE)
             exit();
         }
     } else {
-        $params[3] = null;
+        $params[3] = $_POST['TEST'];
     }
+    // Teste si UPDATE ou INSERT
+    if(isset($_GET['k']) && !empty($_GET['k'])){
+        $update = true;
+    } else{
+        $update = false; // INSERT
+    }
+    
 
     // Sécurité : step 3
-    // préparation ed la requête
+    // préparation de la requête
     $qry = mysqli_stmt_init($cnn);
-    $sql = "INSERT INTO categories(CODE_CATEGORIE, NOM_CATEGORIE, DESCRIPTION ,PHOTO) VALUES(?, ?, ?, ?)";
+    if ($update){
+        $sql = "UPDATE categories SET CODE_CATEGORIE = ?, NOM_CATEGORIE=?, DESCRIPTION=?, PHOTO=? WHERE CODE_CATEGORIE=?";
+    } else {
+        $sql = "INSERT INTO categories(CODE_CATEGORIE, NOM_CATEGORIE, DESCRIPTION ,PHOTO) VALUES(?, ?, ?, ?)";
+    }
+    
     if(mysqli_stmt_prepare($qry,$sql)){
-        //lis les paremètre a la requète preparée
-    mysqli_stmt_bind_param($qry, "isss", $params[0], $params[1], $params[2], $params[3]); // i pour int, s string et s pour le blob car chaine de caractère
-    // exécute la requête
-    mysqli_stmt_execute($qry);
-    // ferme le statement
-    mysqli_stmt_close($qry);
+        //lie les paremètre a la requète preparée
+        if ($update){
+            mysqli_stmt_bind_param($qry, "isssi", $params[0], $params[1], $params[2], $params[3], $_GET['k']);
+        } else {
+            mysqli_stmt_bind_param($qry, "isss", $params[0], $params[1], $params[2], $params[3]);
+        }                           // i pour int, s string et s pour le blob car chaine de caractère
+        // exécute la requête
+        mysqli_stmt_execute($qry);
+        // ferme le statement
+        mysqli_stmt_close($qry);
 
 mysqli_close($cnn);
 }
+
+// Renvoie vers la liste
+header('location:edit_cat_list.php');

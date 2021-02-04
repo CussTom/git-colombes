@@ -21,7 +21,8 @@
     </p>
   <hr class="my-4">
   <p>Cliquer sur le bouton ci-dessous pour acccéder au back-office (user et mot de passe requis) :</p>
-  <a class="btn btn-success btn-lg" href="#" role="button">Connexion</a>
+  <a class="btn btn-success btn-lg" href="login.php" role="button">Connexion</a>
+  <a class="btn btn-warning btn-lg" href="register.php" role="button">Inscription</a>
 </div>
 
 <h2>Membres de l'équipe</h2>
@@ -39,14 +40,30 @@ for ($i=0; $i<count($members); $i++){
 }
 echo $html;
 ?>
-</section>
 
+</section>
 <h2>Nos références</h2>
 <section id="projects">
   <?php
   include_once('project.php');
   ?>
 </section>
+
+
+<div id="bo">
+  <h2>Back_Office</h2>
+  <section id="tables">
+    <?php
+      $cnn = mysqli_connect('localhost', 'root', 'greta', 'information_schema');
+      $res = mysqli_query($cnn, "SELECT TABLE_NAME, TABLE_ROWS FROM TABLES WHERE TABLE_SCHEMA = 'northwind'");
+      $html .= '';
+        while ($row = mysqli_fetch_assoc($res)) {
+          $html .= '<a class="btn btn-info m-3" href="' . $row['TABLE_NAME'] . '.php">' . $row['TABLE_NAME'] . ' <span class="badge badge-light">' . $row['TABLE_ROWS'] . '</span></a>';
+        }
+        echo $html;
+        mysqli_close($cnn);
+    ?>
+    </section>
 
 </body>
 </html>
