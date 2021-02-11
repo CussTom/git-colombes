@@ -69,7 +69,7 @@ if (isset($_FILES['PHOTO']) && $_FILES['PHOTO']['error'] !== UPLOAD_ERR_NO_FILE)
     }
     
     if(mysqli_stmt_prepare($qry,$sql)){
-        //lie les paremètre a la requète preparée
+        //lie les paremètres a la requète preparée
         if ($update){
             mysqli_stmt_bind_param($qry, "isssi", $params[0], $params[1], $params[2], $params[3], $_GET['k']);
         } else {

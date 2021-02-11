@@ -4,3 +4,11 @@ USE northwind
 ALTER TABLE categories
 	ADD PHOTO BLOB
 ;
+
+ALTER TABLE categories
+	MODIFY COLUMN PHOTO MEDIUMBLOB
+;
+
+SELECT *
+FROM categories
+;
