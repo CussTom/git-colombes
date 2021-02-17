@@ -41,7 +41,8 @@ if ($nb === 1) {
     mysqli_stmt_bind_param($qry, 'ssssi', $mail, $fname, $pass, $land, $active);
     $res = mysqli_stmt_execute($qry);
     mysqli_stmt_close($qry);
-
+   
+    
     // Envoi d'un mail pour confirmation si succès
     if ($res) {
       // Corps du mail
@@ -74,5 +75,8 @@ if ($nb === 1) {
     }
   }
 }
-
+// 3. déconnexion de la BDD
 mysqli_close($cnn);
+
+// 4. routage vers index.html
+header('location: index.php?user=ok');

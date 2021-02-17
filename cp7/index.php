@@ -1,3 +1,11 @@
+<?php
+$connected = false;
+if(isset($_SESSION['connected']) && $_SESSION['connected']){
+  $connected = $_SESSION['connected'];
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -21,9 +29,53 @@
     </p>
   <hr class="my-4">
   <p>Cliquer sur le bouton ci-dessous pour acccéder au back-office (user et mot de passe requis) :</p>
-  <a class="btn btn-success btn-lg" href="login.php" role="button">Connexion</a>
-  <a class="btn btn-warning btn-lg" href="#" role="button" data-toggle="modal" data-target="#staticBackdrop">Inscription</a>
+  <a class="btn btn-success btn-lg" href="#" role="button" style="display:<?php echo (!$connected?'':'none');?>" data-toggle="modal" data-target="#login">Connexion</a>
+  <span style="display:<?php echo ($connected?'':'none');?>">
+    <a class="btn btn-info btn-lg" href="logout.php" role="button" >Déconnexion</a>
+    <a class="btn btn-warning btn-lg" href="#" role="button" data-toggle="modal" data-target="#register">Inscription</a>
+  </span>
 </div>
+
+<?php
+// SUCCES : USER crée
+  if(isset($_GET['user']) && !empty($_GET['user'])){
+    if($_GET['user']==='ok'){
+      $html ='
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Félicitations</strong> Votre compte a été créé avec succès.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>';
+      echo $html;
+    }
+  }
+// ECHEC : Connexion KO
+  if (isset($_GET['cnn']) && !empty($_GET['cnn'])){
+    if($_GET['cnn'] == 1){
+    $html = '';
+    $html .= '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Félicitations</strong> Votre compte a été créé avec succès.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>';
+  echo $html;
+  }
+  // AVERTISSEMENT : Déconnexion OK
+  elseif($_GET['cnn'] == 2){
+    $html = '';
+    $html .= ' <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Avertissement !</strong> Connexion échue.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>';
+  echo $html;
+  }
+}
+
+?>
 
 <h2>Membres de l'équipe</h2>
 
@@ -65,13 +117,13 @@ echo $html;
     ?>
     </section>
 
-    <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- Modal Inscription -->
+<div class="modal fade" id="register" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
     <form action="register.php" method="post">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Inscription</h5>
+        <h5 class="modal-title" id="register">Inscription</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -102,16 +154,44 @@ echo $html;
                 $obj = json_decode($json);
                 $html = '';
                 foreach ($obj as $val) {
-                    $html .= '<option value="' . $val->alpha2Code . '">'. $val->translations->fr .'</option>';
-                    
+                    $html .= '<option value="' . $val->alpha2Code . '">'. $val->translations->fr .'</option>';  
                 }
                 echo $html;
               ?>
-            </select> 
-            <?php
-          
-            ?>      
+            </select>   
           </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <input type="submit" value="Valider" class="btn btn-primary">
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Connexion -->
+<div class="modal fade" id="login" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    <form action="login.php" method="post">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Inscription</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="form-group">
+          <label for="mail">Courriel :</label>
+          <input type="email" name="mail" id="mail" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="pass">Mot de passe :</label>
+          <input type="password" name="pass" id="pass" class="form-control" pattern="[A-Za-z0-9@$*!?    ]{8,}" required >
+        </div>  
+          
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
@@ -124,7 +204,6 @@ echo $html;
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-
     <script src="index.js"></script>
 
 </body>
