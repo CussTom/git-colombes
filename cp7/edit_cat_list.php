@@ -66,7 +66,7 @@ $res = mysqli_query($cnn,"SELECT * FROM categories LIMIT {$start}, {$nb}");
                 if($key === 0){
                     $html .= '<td><a href="edit_cat_form.php?k=' . $val . '">' . $val . '</a></td>';                
                 // Si ce n'est pas du BLOB
-            } elseif(strpos($val, 'base64,')){
+            } elseif(strpos($val, ';base64,')){
                 $html .= '<td><img src="' . $val . '" style="width:7rem"/>
                 </td>';
                } else {

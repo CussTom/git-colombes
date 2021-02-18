@@ -47,8 +47,8 @@ if (!isset($_SESSION['connected']) || !$_SESSION['connected']){
             // Préparation de la requête
             $sql = "
                 SELECT t.TABLE_NAME, t.TABLE_ROWS, c.COLUMN_NAME
-                FROM information_schema.TABLES t
-                JOIN information_schema.COLUMNS c
+                FROM information_schema.tables t
+                JOIN information_schema.columns c
                 ON t.TABLE_SCHEMA = c.TABLE_SCHEMA
                 AND t.TABLE_NAME = c.TABLE_NAME
                 WHERE t.TABLE_SCHEMA = ?

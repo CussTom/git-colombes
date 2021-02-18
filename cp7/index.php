@@ -1,10 +1,11 @@
 <?php
+session_start();
 $connected = false;
 if(isset($_SESSION['connected']) && $_SESSION['connected']){
   $connected = $_SESSION['connected'];
 }
-?>
 
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -17,65 +18,63 @@ if(isset($_SESSION['connected']) && $_SESSION['connected']){
     
 </head>
 <body class="container">
-
-<div class="jumbotron">
-  <h1 class="display-4">Northwind traders</h1>
-  <p class="lead">Projet fil rouge en HTML, CSS, Javascript, PHP et MySQL basé sur le jeu de données Northwind.
-    <?php
-        include_once('team.php');
-        $diff = (strtotime(date('Y-m-d'))-strtotime('2020-11-02'))/60/60/24;
-        echo 'Développé par '.PRENOM. ', Daron Coder depuis ' .$diff. ' jours.';
-    ?>
-    </p>
-  <hr class="my-4">
-  <p>Cliquer sur le bouton ci-dessous pour acccéder au back-office (user et mot de passe requis) :</p>
-  <a class="btn btn-success btn-lg" href="#" role="button" style="display:<?php echo (!$connected?'':'none');?>" data-toggle="modal" data-target="#login">Connexion</a>
-  <span style="display:<?php echo ($connected?'':'none');?>">
-    <a class="btn btn-info btn-lg" href="logout.php" role="button" >Déconnexion</a>
-    <a class="btn btn-warning btn-lg" href="#" role="button" data-toggle="modal" data-target="#register">Inscription</a>
-  </span>
-</div>
+    <div class="jumbotron">
+        <h1 class="display-4">Northwind Traders</h1>
+        <p class="lead">Projet fil rouge en HTML, CSS, JS, PHP et MySQL basé sur le jeu de données Northwind.
+            <?php
+            include_once('team.php');
+            $diff = (strtotime(date('Y-m-d')) - strtotime('2020-11-02')) / 60 / 60 / 24;
+            echo ' Développé par ' . PRENOM . ', Daron Coder depuis ' . $diff . ' jours.';
+            ?>
+        </p>
+        <hr class="my-4">
+        <p>Cliquer sur le bouton ci-dessous pour accéder au back-office (user et mot de passe requis) :</p>
+        <a class="btn btn-danger btn-lg" href="logout.php" role="button" style="display:<?php echo ($connected ? '' : 'none'); ?>">Déconnexion</a>
+        <span style="display:<?php echo (!$connected ? '' : 'none'); ?>">
+            <a class="btn btn-success btn-lg" href="#" role="button" data-toggle="modal" data-target="#login">Connexion</a>
+            <a class="btn btn-warning btn-lg" href="#" role="button" data-toggle="modal" data-target="#register">Inscription</a>
+        </span>
+    </div>
 
 <?php
-// SUCCES : USER crée
-  if(isset($_GET['user']) && !empty($_GET['user'])){
-    if($_GET['user']==='ok'){
-      $html ='
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Félicitations</strong> Votre compte a été créé avec succès.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-      </div>';
-      echo $html;
-    }
+  // SUCCES : User créé
+  if (isset($_GET['user']) && !empty($_GET['user'])) {
+      if ($_GET['user'] === 'ok') {
+          $html = '
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>Félicitations !</strong> votre compte a été créé avec succès.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+              </div>';
+          echo $html;
+      }
   }
-// ECHEC : Connexion KO
-  if (isset($_GET['cnn']) && !empty($_GET['cnn'])){
-    if($_GET['cnn'] == 1){
-    $html = '';
-    $html .= '<div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>Félicitations</strong> Votre compte a été créé avec succès.
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-    </button>
-  </div>';
-  echo $html;
+  if (isset($_GET['cnn']) && !empty($_GET['cnn'])) {
+      // ECHEC : Connexion KO
+      if ($_GET['cnn'] == 1) {
+          $html = '
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Attention !</strong> login ou mot de passe incorrect.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+              </div>';
+          echo $html;
+      }
+      // AVERTISSEMENT : Déconnexion OK
+      elseif ($_GET['cnn'] == 2) {
+          $html = '
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>Avertissement !</strong> Connexion échue.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+              </div>';
+          echo $html;
+      }
   }
-  // AVERTISSEMENT : Déconnexion OK
-  elseif($_GET['cnn'] == 2){
-    $html = '';
-    $html .= ' <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Avertissement !</strong> Connexion échue.
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-    </button>
-  </div>';
-  echo $html;
-  }
-}
-
-?>
+  ?>
 
 <h2>Membres de l'équipe</h2>
 
@@ -176,7 +175,7 @@ echo $html;
     <div class="modal-content">
     <form action="login.php" method="post">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Inscription</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Connexion</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -205,7 +204,8 @@ echo $html;
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="index.js"></script>
-
+    <?php
+?>
 </body>
 </html>
 
