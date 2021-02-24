@@ -16,7 +16,7 @@ include_once('pdo_connect.php');
 <body class="container">
     <?php
     // Message si pas d'info dans l'URL
-    if (!isset($_GET['t']) || empty($_GET['t']) || !isset($_GET['k']) && empty($_GET['k']) || !isset($_GET['id']) || empty($_GET['id'])) {
+    if (!isset($_GET['t']) || empty($_GET['t']) || !isset($_GET['k']) || empty($_GET['k'])) {
         echo '<p class="alert alert-warning"><strong>Attention !</strong> Aucune donnée à afficher : <a href="bo.php">retour au back-office</a></p>';
         exit();
     }
@@ -36,9 +36,44 @@ include_once('pdo_connect.php');
         </ol>
     </nav>
 
-    <form action="list.php" method="post">
-        <div class="form-group">
-        
+    <form action="" method="post">
+        <?php
+        try {
+            // Prépare la requête
+            if (!empty($id)) {
+                // Si ID alors retoruve la ligne
+                $sql = "SELECT * FROM $t WHERE $k = ?";
+                $qry = $cnn->prepare($sql);
+                $vals = array($id);
+                $qry->execute($vals);
+                $row = $qry->fetch(); // contient toutes les valeurs de la ligne en cours
+            } else {
+                // Sinon requête vide pour lire colonnes
+                $sql = "SELECT * FROM $t WHERE 1 = 2";
+                $qry = $cnn->prepare($sql);
+                $qry->execute();
+                // Lit les colonnes, en allant les chercher dans une boucle columnCount()
+                for ($i = 0; $i < $qry->columnCount(); $i++) {
+                    $row[$qry->getColumnMeta($i)['name']] = '';
+                }
+            }
+
+            // Ajoute LABEL et INPUT
+            $html = '';
+            foreach ($row as $key => $val) {
+                $html .= '<div class="form-group">';
+                $html .= '<label for="' . $key . '">' . $key . '</label>';
+                $html .= '<input class="form-control" type="text" id="' . $key . '" name="' . $key . '" value="' . $val . '"/>';
+                $html .= '</div>';
+            }
+            // SUBMIT
+            $html .= '<input type="submit" value="Modifier" class="btn btn-success"';
+            echo $html;
+        } catch (PDOException $err) {
+            echo $err->getMessage();
+        }
+        ?>
+
     </form>
 
 </body>

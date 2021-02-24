@@ -109,8 +109,8 @@ if (isset($_GET['nb']) && !empty($_GET['nb'])) {
                     }
                 }
                 // Ajoute bouton UPDATE et DELETE
-                $html .= '<td><a class="btn btn-warning btn-sm" href="edit.php?t=' . $t . '&k=' . $k . 'id=' . $row[$k] . '">MAJ</a></td>';
-                $html .= '<td><a class="btn btn-danger btn-sm" href="delete.php?t=' . $t . '&k=' . $k . 'id=' . $row[$k] . '">SUPPR</a></td>';
+                $html .= '<td><a class="btn btn-warning btn-sm" href="edit.php?t=' . $t . '&k=' . $k . '&id=' . $row[$k] . '">MAJ</a></td>';
+                $html .= '<td><a class="btn btn-danger btn-sm" href="delete.php?t=' . $t . '&k=' . $k . '&id=' . $row[$k] . '">SUPPR</a></td>';
                 $html .= '</tr>';
             }
             echo $html;
