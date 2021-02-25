@@ -193,4 +193,22 @@ class Singleton
             throw new Exception(__CLASS__ . ' : Aucune configuration définie (hôte, port et nom BDD).');
         }
     }
+
+    /**
+     * Méthode qui renvoie le résultat d'une requête sous la forme d'un objet JSON
+     * @param string $sql - requête préparée SELECT/SHOW
+     * @param array $vals - paramètres
+     */
+
+    public static function getAllData(string $sql, array $vals = array()): string
+    {
+        try {
+            // Prépare et exécute ma requête
+            $qry = self::getPDO()->prepare($sql);
+            $qry->execute($vals);
+            return json_encode($qry->fetchAll());
+        } catch (PDOEXception $err) {
+            throw new PDOException(__CLASS__ . ' : ' . $err->getMessage());
+        }
+    }
 }
