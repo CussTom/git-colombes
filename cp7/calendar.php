@@ -29,6 +29,13 @@ include_once('model.class.php');
         </ol>
     </nav>
 
+    <nav>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="new_order.php" class="btn btn-secondary">Prendre une commande</a>
+            <a href="bo.php" class="btn btn-secondary">Back-Office</a>
+        </div>
+    </nav>
+
     <div id="calendar">
         <script src="calendar/main.min.js"></script>
         <script src="calendar.js"></script>
