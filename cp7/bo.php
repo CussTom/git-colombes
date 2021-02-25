@@ -34,7 +34,12 @@ if (!isset($_SESSION['connected']) || !$_SESSION['connected']) {
         </ol>
     </nav>
 
-
+    <nav>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="stats.php" class="btn btn-secondary">Statistiques des ventes</a>
+            <a href="calendar.php" class="btn btn-secondary">Calendrier des commandes</a>
+        </div>
+    </nav>
 
     <section class="row">
         <?php
