@@ -11,20 +11,55 @@ body{
 
 .cards{
     display: flex;
-    /* flex-direction: row; */
+    position: relative;
+    flex-direction: row;
     width: auto;
-    height: 100%;
-}
-
-.card{
-    /* width: 100%;
-    height: 100%; */
+    height: auto;
     /* border: 1px solid red; */
     justify-content: space-between;
 }
 
+.card-body.card-title.card-text.btn-primary{
+    text-align: center;
+}
+
+.card-title, .card-text, .btn-primary{
+    text-align: center;
+}
+
+.btn-primary{
+    width: auto;
+    margin-left: 68px;
+}
+
 .card-img-top{
-    width: 200px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
     align-items: center;
+}
+
+img{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    display: block;
+}
+
+footer{
+    position: relative;
+    height: 100px;
+    margin-top: 40px;
+    background-color: #E9ECEF;
+}
+
+.foot{
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    line-height: 90px;
+}
+
+ol{
+    margin-right: 100px;
+    font-weight: bolder;
 }
