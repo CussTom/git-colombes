@@ -22,4 +22,4 @@ if (isset($_GET['dept']) && !empty($_GET['dept'])){
     echo $html;
 } else {
     echo '<div class=""alert alert-warning">Aucun département trouvé</div>';
-}
+} 
