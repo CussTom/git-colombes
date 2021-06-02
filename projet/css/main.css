@@ -1,0 +1,104 @@
+/* HEADER */
+
+.jumbotron{
+    padding: 5px;
+    background-color: white;
+}
+
+.connect{
+    display: flex;
+    align-items: center;
+}
+
+.site-name{
+    display: inline-block;
+    justify-content: flex-start;
+    width: 525px;
+}
+
+.buttons{
+    display: flex;
+    width: 570px;
+    padding: 0;
+    justify-content: flex-end;
+}
+
+.rounded{
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0;
+}
+
+#banner_articles.rounded{
+    display: block;
+    width: 100%;
+    height: 350px;
+    padding: 0;
+}
+
+.slogan, .slogan_articles{
+    display: flex;
+    padding-left: 135px;
+    margin-top: -10px;
+    margin-bottom: -15px;
+}
+
+/* BODY */
+
+#popular{
+    text-decoration: underline;
+    box-sizing : content-box;
+    width: 100%;
+}
+
+h4{
+    font-size: large;
+    text-align: center;
+}
+
+.h4_title{
+    margin-top: 50px;
+}
+
+.news_title{
+    text-decoration: underline;
+}
+
+#carousel{
+    margin: auto;
+    width: 50%;
+    
+}
+
+#caption{
+    color: red;
+    font-size: larger;
+}
+
+#description{
+    color: black;
+    font-size: larger;
+}
+
+footer{
+    text-align: center;
+}
+
+
+/* ARTICLES.php */
+
+img{
+    width: calc(100%);
+    height: 100%;
+    }
+
+.news{
+    margin: 10px;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.articles{
+    display: flex;
+}
