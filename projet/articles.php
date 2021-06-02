@@ -78,26 +78,28 @@ echo utf8_encode(strftime('%A %d %B %Y'));?></p>
     $newsData = json_decode($response);
 ?>
 
-    <div class='container-fluid'>
+    <div class='container-fluid news'>
         <?php
             foreach ($newsData->articles as $news){
         ?>
-        <div class="row news">
-            <div class="col-md-3">
-                <img src="<?php echo $news->urlToImage ?>" alt="Vignette de l'article" class="rounded">
-            </div>
-            <div class="col-md-9 articles">
-                <h4 class="link">
-                    <a href=<?php echo $news->url ?> target="blank">
-                    <?php echo $news->title ?>
-                </h4>
-                <h5> <?php echo $news->description ?></h5>
-                <p> <?php echo $news->content ?></p>
-                <h6 >Auteur : <?php echo $news->author ?></h6>
-                <h6>Publié le : <?php echo $news->publishedAt ?></h6>
-                <!-- <h6>Source : <?php echo $news->source->name ?></h6> -->
-                <hr class="md-6">
-            </div>
+        <div class="row col-md-9 articles">
+            <!-- <div class="row"> -->
+                <!-- <div class="col-md-3"> -->
+                <h4 class="title">
+                        <a class="link" href=<?php echo $news->url ?> target="blank">
+                        <?php echo $news->title ?>
+                    </h4>
+                    <img src="<?php echo $news->urlToImage ?>" alt="Vignette de l'article" class="rounded">
+                <!-- </div>
+                <div class="col-md-9 text"> -->
+                    <h5 class="description"> <?php echo $news->description ?></h5>
+                    <p> <?php echo $news->content ?></p>
+                    <h6 >Auteur : <?php echo $news->author ?></h6>
+                    <h6>Publié le : <?php echo $news->publishedAt ?></h6>
+                    <!-- <h6>Source : <?php echo $news->source->name ?></h6> -->
+                    <hr class="md-6 sep_articles">
+                <!-- </div>
+            </div> -->
         </div>
             <?php
             // Calcule la pagination
@@ -113,15 +115,6 @@ echo utf8_encode(strftime('%A %d %B %Y'));?></p>
 </section>
 <hr class="my-6">
 
-<nav>
-    <ul class="pagination justify-content-center">
-    <?php
-    
-    
-   
-    ?>    
-    </ul>
-</nav>
 
 <footer>
         <div class="footer">

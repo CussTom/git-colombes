@@ -51,6 +51,17 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
                 </div>';
             echo $html;
         }
+         // AVERTISSEMENT : User existe déjà
+         elseif ($_GET['user'] == 'ko') {
+            $html = '
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Attention ce compte existe déjà !</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>';
+            echo $html;
+      }
     }
     if (isset($_GET['cnn']) && !empty($_GET['cnn'])) {
         // ECHEC : Connexion KO
@@ -65,7 +76,7 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
             echo $html;
         }
         // AVERTISSEMENT : Déconnexion OK
-        elseif ($_GET['cnn'] == 2) {
+        elseif ($_GET['user'] == 2) {
             $html = '
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>Avertissement !</strong> Connexion échue.
@@ -75,17 +86,6 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
                 </div>';
             echo $html;
         }
-        // AVERTISSEMENT : User existe déjà
-        elseif ($_GET['row'] === '1') {
-            $html = '
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong>Attention ce compte existe déjà !</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-                </div>';
-            echo $html;
-      }
     }
     ?>
 

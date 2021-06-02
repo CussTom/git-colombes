@@ -1,3 +1,5 @@
+/* PAGE INDEX */
+
 /* HEADER */
 
 .jumbotron{
@@ -81,24 +83,57 @@ h4{
     font-size: larger;
 }
 
-footer{
+footer.credit{
+    align-items: center;
     text-align: center;
+    width: max-content;
+    margin: auto;
 }
 
 
-/* ARTICLES.php */
 
-img{
-    width: calc(100%);
-    height: 100%;
-    }
+/*  PAGE ARTICLES */
 
 .news{
-    margin: 10px;
-    margin-left: -5px;
-    margin-right: -5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 .articles{
     display: flex;
+    height: 300px;
+    justify-content: space-around;
 }
+
+.text{
+    margin-left: 25%;
+    margin-top: -10%;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.link{
+    color: black;
+}
+
+.hr_articles{
+    margin: -30px;
+}
+
+.title{
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.description{
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+

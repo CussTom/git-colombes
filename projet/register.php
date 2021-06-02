@@ -3,6 +3,7 @@
 include_once('constants.php');
 include_once('pdoConnect.php');
 
+
 // Tester avec MYSQLI si le user est reconnu ou pas :
 // requête préparée pour vérifier si mail trouvé
 
@@ -12,11 +13,9 @@ $hash = MD5(htmlspecialchars($_POST['mail']));
 $qry->execute(array($hash));
 $row = $qry->fetch();
 
-if ($row['mail'] === 1) {
-  echo $row;
-  // si OUI alors afficher message d'erreur
-  echo 'Ce compte existe déjà : ' . $_POST['mail'];
-}
+if ($row['nb'] == 1) {
+  // si OUI routage vers index.html avec alerte user créé
+  header('location: index.php?user=ko');
 } else {
   // si NON alors créer un nouvel user avec role app_read
   $pass = hash(
@@ -29,6 +28,8 @@ if ($row['mail'] === 1) {
   $sql = 'INSERT INTO users(mail, fname, pass, land, active) VALUES(?, ?, ?, ?, ?)';
   $qry = $cnn->prepare($sql);
   $res = $qry->execute(array($hash, $fname, $pass, $land, $active));
+  // routage vers index.html avec alerte user créé
+  header('location: index.php?user=ok');
 }
  
 
@@ -66,5 +67,4 @@ if ($row['mail'] === 1) {
 //   }
 // }
 
-// 4. routage vers index.html
-// header('location: index.php?user=ok');
+
