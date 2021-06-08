@@ -1,4 +1,8 @@
 <?php
+
+include_once('constants.php');
+include_once('pdoConnect.php');
+
 session_start();
 $connected = false;
 if (isset($_SESSION['connected']) && $_SESSION['connected']) {
@@ -17,6 +21,8 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous" defer></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="container">
@@ -29,6 +35,7 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
         </div>
       <div class="buttons">
           <span style="display:<?php echo ($connected ? '' : 'none'); ?>">
+                <a class="btn btn-outline-info btn-sm" href="articles.php" role="button">Accèder aux articles</a>
 		        <a class="btn btn-outline-danger btn-sm" href="deconnexion.php" role="button">Déconnexion</a>
           </span>
           <span style="display:<?php echo (!$connected ? '' : 'none'); ?>">
@@ -37,8 +44,45 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
           </span>
         </div>
       </div>
+      <button class="btn btn-outline-light btn-sm" id="darkMode"></button>
+
+          <!-- Modal Déconnexion -->
+    <div class="modal" id="deconnexion" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <form action="deconnexion.php" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title">Déconnexion</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <div class="modal-body">
+                <p>Etes vous sûr de vouloir vous déconnecter ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <a class="btn btn-primary" href="deconnexion.php" role="button">Déconnexion</a>
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
 
       <?php
+    // CAPTCHA : Erreur code
+    if (isset($_GET['captcha']) && !empty($_GET['captcha'])) {
+        if ($_GET['captcha'] === 'w') {
+            $html = '
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Erreur !</strong> Le code est incorrect, veuillez recommencer.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>';            
+            echo $html;
+        }
+    }
     // SUCCES : User créé
     if (isset($_GET['user']) && !empty($_GET['user'])) {
         if ($_GET['user'] === 'ok') {
@@ -85,7 +129,7 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
                 </button>
                 </div>';
             echo $html;
-        }
+        }      
     }
     ?>
 
@@ -160,6 +204,13 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
                                 echo $html;
                                 ?>
                             </select>
+                            <div class="form-group captcha">
+                                    <label class="label-captcha" for="captcha" style="margin-top: .5rem;">Code de vérification :</label>
+                                    <input type="text"  name="captcha" class="form-control"required>
+                                    <span class="input-group-addon">
+                                        <img src="captcha.php" id="captcha" alt="Captcha" class="rounded-sm" style="margin-top: .5rem;">
+                                    </span>                                
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -171,7 +222,7 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
         </div>
     </div>
 
-      <!--<hr class="my-6">-->
+  <!--<hr class="my-6">-->
   <div class="banner">
     <img class="rounded" src="bandeau2.png">
   </div>
@@ -222,12 +273,13 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
 </div>
 </section>
 <hr class="my-6">
-
-<footer>
-        <div class="footer">
-            <div class="credit">© 2021 Science Today</div>
-        </div>
-     </footer>
     
 </body>
+
+<footer>
+        <div>
+            <p class="footer">© 2021 Science Today</p>
+        </div>
+</footer>
+    <script type="text/javascript" src="darkMode.js"></script>
 </html>

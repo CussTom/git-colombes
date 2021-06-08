@@ -3,6 +3,18 @@
 include_once('constants.php');
 include_once('pdoConnect.php');
 
+session_start();
+// var_dump($_POST);
+// var_dump($_SESSION['code']);
+// var_dump($_POST["captcha"]);
+
+// // on vérifie que captcha est défini et non vide, puis on le compare avec le code renseigné par le user
+if(isset($_POST["captcha"]) && $_POST["captcha"] != " " && $_SESSION["code"] == $_POST["captcha"]) {
+  // header('location: index.php?user=ok');
+} else  {  
+  header('Location: index.php?captcha=w');
+  exit;
+}
 
 // Tester avec MYSQLI si le user est reconnu ou pas :
 // requête préparée pour vérifier si mail trouvé
@@ -16,7 +28,8 @@ $row = $qry->fetch();
 if ($row['nb'] == 1) {
   // si OUI routage vers index.html avec alerte user créé
   header('location: index.php?user=ko');
-} else {
+}  
+elseif ($row['nb'] == 0) { 
   // si NON alors créer un nouvel user avec role app_read
   $pass = hash(
     'sha512',
@@ -30,41 +43,4 @@ if ($row['nb'] == 1) {
   $res = $qry->execute(array($hash, $fname, $pass, $land, $active));
   // routage vers index.html avec alerte user créé
   header('location: index.php?user=ok');
-}
- 
-
-    
-//     // Envoi d'un mail pour confirmation si succès
-//     if ($res ===) {
-//       // Corps du mail
-//       $url = 'http://' . $_SERVER['HTTP_HOST'] . '/htdocs/projet/register2.php?m=' . $hash;
-//       $html = '
-//         <!DOCTYPE html>
-//         <html lang="fr">
-//         <head>
-//         <meta charset="UTF-8">
-//         </head>
-//         ';
-//       $html = '<h1>Inscription a Science Today !</h1>';
-//       $html .= '<p>Bonjour ' . $_POST['fname'] . ' et bienvenu(e) sur notre site.';
-//       $html .= '<p>Cliquez sur le lien suivant pour valider votre inscription : <a href="' . $url.'">' . $url.'</a>';
-//       $html .= '<p>A très bientôt';
-//       $html .= '</body></html>';
-//       // En-tête du mail
-//       $header = "MIME-Version: 1.0 \n"; // Version MIME
-//       $header .= "Content-type: text/html; charset=utf-8 \n"; // Format du mail
-//       $header .= "From: sciencetoday@gmail.fr \n"; // Expéditeur
-//       $header .= "Reply-to: DESTINATAIRE@gmail.fr \n"; // Destinataire de la réponse
-//       $header .= "Disposition-Notification-To: tomt75633@gmail.com\n"; // Accusé de réception
-//       $header .= "X-Priority: 1 \n"; // Activation importance
-//       $header .= "X-MSMail-Priority: High \n"; // MS
-//       // Envoi du mail
-//       $res2 = mail($_POST['mail'], 'Science Today !', urlencode($html), $header);
-//       echo ($res2 ? 'Succès' : 'Echec');
-//     } else {
-//       echo 'Echec dans l\'ajout du user.';
-//     }
-//   }
-// }
-
-
+ } 

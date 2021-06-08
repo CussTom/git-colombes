@@ -33,10 +33,12 @@ include_once('pdoConnect.php');
         </div>
       <div class="buttons">
           <span style="display:<?php echo ($connected ? '' : 'none'); ?>">
-              <a class="btn btn-outline-danger btn-sm" href="#" role="button" data-toggle="modal" data-target="#deconnexion">Deconnexion</a>
+            <a class="btn btn-outline-info btn-sm" href="index.php" role="button">Accueil</a>
+            <a class="btn btn-outline-danger btn-sm" href="#" role="button" data-toggle="modal" data-target="#deconnexion">Deconnexion</a>
           </span>
         </div>
       </div>
+      <div class="btn btn-outline-light btn-sm" id="darkMode">light mode</div>
 
     <div class="modal" id="deconnexion" tabindex="-1">
         <div class="modal-dialog">
@@ -63,7 +65,7 @@ include_once('pdoConnect.php');
 
       <hr class="my-6">
   <div class="banner">
-    <img id="banner_articles" class="rounded" src="bandeau.jpg" >
+    <img id="banner_articles" class="rounded" src="black_banner.png" >
   </div>
   <hr class="my-6">
   <p class="news_title">Les actus du <?php setlocale(LC_TIME, 'fr_FR');
@@ -80,47 +82,36 @@ echo utf8_encode(strftime('%A %d %B %Y'));?></p>
 
     <div class='container-fluid news'>
         <?php
-            foreach ($newsData->articles as $news){
+            foreach ($newsData->articles as $news){  
         ?>
         <div class="row col-md-9 articles">
-            <!-- <div class="row"> -->
-                <!-- <div class="col-md-3"> -->
                 <h4 class="title">
                         <a class="link" href=<?php echo $news->url ?> target="blank">
                         <?php echo $news->title ?>
                     </h4>
                     <img src="<?php echo $news->urlToImage ?>" alt="Vignette de l'article" class="rounded">
-                <!-- </div>
-                <div class="col-md-9 text"> -->
                     <h5 class="description"> <?php echo $news->description ?></h5>
                     <p> <?php echo $news->content ?></p>
                     <h6 >Auteur : <?php echo $news->author ?></h6>
                     <h6>Publié le : <?php echo $news->publishedAt ?></h6>
-                    <!-- <h6>Source : <?php echo $news->source->name ?></h6> -->
                     <hr class="md-6 sep_articles">
-                <!-- </div>
-            </div> -->
         </div>
+
             <?php
-            // Calcule la pagination
-
-
-            // Affiche la pagination
-
-                }
+            }   
             ?>
 
     </div>
-   
 </section>
-<hr class="my-6">
 
+<!-- <hr class="my-6"> -->
 
 <footer>
         <div class="footer">
-            <div class="credit">© 2021 Science Today</div>
+            <p>© 2021 Science Today</p>
         </div>
-     </footer>
-    
+</footer>
+
+<script type="text/javascript" src="darkMode.js"></script>
 </body>
 </html>
