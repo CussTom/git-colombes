@@ -74,15 +74,31 @@ echo utf8_encode(strftime('%A %d %B %Y'));?></p>
 </header>
 
 <section id="articles">
+<div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Catégories
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Science</a>
+    <a class="dropdown-item" href="#">Technologie</a>
+  </div>
+</div>
 <?php
-    $urlApi = 'https://newsapi.org/v2/top-headlines?country=fr&category=science&apiKey=e847ffb86d8147d6a065b4690860cd60';
-    $response = file_get_contents($urlApi);
-    $newsData = json_decode($response);
+    // SCIENCE
+    $urlSc = 'https://newsapi.org/v2/top-headlines?country=fr&category=science&apiKey=e847ffb86d8147d6a065b4690860cd60';
+    $respSc = file_get_contents($urlSc);
+    $newsDataSc = json_decode($respSc);
+
+    // NOUVELLES TECHNOS
+    $urlTech = 'https://newsapi.org/v2/top-headlines?country=fr&category=technology&apiKey=e847ffb86d8147d6a065b4690860cd60';
+    $respTech = file_get_contents($urlTech);
+    $newsDataTech = json_decode($respTech);
 ?>
 
     <div class='container-fluid news'>
         <?php
-            foreach ($newsData->articles as $news){  
+            foreach ($newsDataSc->articles as $news){  
         ?>
         <div class="row col-md-9 articles">
                 <h4 class="title">

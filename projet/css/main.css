@@ -20,6 +20,12 @@ body{
     color: var(--btn);
 }
 
+/* MODAL */
+
+.modal{
+    color: black;
+}
+
 /* HEADER */
 
 .jumbotron{
@@ -163,4 +169,29 @@ hr{
     margin: auto;
     margin-top: 10px;
     margin-bottom: 25px;
+}
+
+
+/* MEDIA QUERIES */
+
+/* Taille inférieure à 767px */
+@media screen and (max-width: 767px){
+
+    .connect{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .buttons{
+        flex-direction: row;
+        justify-content: flex-end;
+        
+    }
+
+
+    .slogan, .slogan_articles{
+        display: flex;
+        padding-left: 100px;
+        
+    }
 }

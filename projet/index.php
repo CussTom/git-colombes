@@ -45,6 +45,7 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
         </div>
       </div>
       <button class="btn btn-outline-light btn-sm" id="darkMode"></button>
+      <!-- <div id="logo"></div> -->
 
           <!-- Modal Déconnexion -->
     <div class="modal" id="deconnexion" tabindex="-1">
@@ -155,7 +156,7 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Valider</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                         <input type="submit" value="Valider" class="btn btn-primary">
                     </div>
                 </form>
@@ -169,7 +170,7 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
             <div class="modal-content">
                 <form action="register.php" method="post">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Inscription</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel" class="text-dark">Inscription</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -214,7 +215,7 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                         <input type="submit" value="Valider" class="btn btn-primary">
                     </div>
                 </form>

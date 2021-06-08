@@ -3,7 +3,11 @@ window.onload = function(){
 
 const themeBtn = document.getElementById('darkMode')
 let toggle = 0;
-themeBtn.innerHTML = 'light on';
+// let img = document.createElement("img");
+// img.src = "dark_mode.png";
+// let logo = document.getElementById('logo');
+// div.appendChild(img);
+themeBtn.innerHTML = 'light off';
     
 themeBtn.addEventListener('click', () => {
     if(toggle === 0) {
