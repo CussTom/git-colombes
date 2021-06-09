@@ -70,8 +70,8 @@ include_once('pdoConnect.php');
   </div>
   <hr class="my-6">
   <p class="news_title">Les actus du <?php setlocale(LC_TIME, 'fr_FR');
-date_default_timezone_set('Europe/Paris');
-echo utf8_encode(strftime('%A %d %B %Y'));?></p>
+    date_default_timezone_set('Europe/Paris');
+    echo utf8_encode(strftime('%A %d %B %Y'));?></p>
 </header>
 
 <section id="articles">
@@ -79,52 +79,44 @@ echo utf8_encode(strftime('%A %d %B %Y'));?></p>
     $cats = [["id"=>1, "nom"=>"science"], ["id"=>2, "nom"=>"technology"]];
     ?>
 
- <select id="cats">
-<?php 
-        foreach ($cats as $key => $value): ?>
-       <option value="<?php echo $value["nom"];?>"><?php echo $value["nom"];?></option>     
-       
-    <?php endforeach;?>
-   
+    <select id="cats">
+        <?php 
+            foreach ($cats as $key => $value): ?>
+        <option value="<?php echo $value["nom"];?>"><?php echo $value["nom"];?></option>     
+        
+        <?php endforeach;?>
     </select>
+
 <?php
     // SCIENCE
     $urlSc = 'https://newsapi.org/v2/top-headlines?country=fr&category=science&apiKey=e847ffb86d8147d6a065b4690860cd60';
     $respSc = file_get_contents($urlSc);
     $newsDataSc = json_decode($respSc);
-
-    // NOUVELLES TECHNOS
-    $urlTech = 'https://newsapi.org/v2/top-headlines?country=fr&category=technology&apiKey=e847ffb86d8147d6a065b4690860cd60';
-    $respTech = file_get_contents($urlTech);
-    $newsDataTech = json_decode($respTech);
 ?>
 
     <div id ="art" class='container-fluid news'>
         <?php
             foreach ($newsDataSc->articles as $news){  
         ?>
-        <div class="row col-md-9 articles">
+        <div class="row col-md-12 articles">
                 <h4 class="title">
-                        <a class="link" href=<?php echo $news->url ?> target="blank">
-                        <?php echo $news->title ?>
-                    </h4>
-                    <img src="<?php echo $news->urlToImage ?>" alt="Vignette de l'article" class="rounded">
-                    <h5 class="description"> <?php echo $news->description ?></h5>
-                    <p> <?php echo $news->content ?></p>
-                    <h6 >Auteur : <?php echo $news->author ?></h6>
-                    <h6>Publié le : <?php echo $news->publishedAt ?></h6>
-                    <hr class="md-6 sep_articles">
+                    <a class="link" href=<?php echo $news->url ?> target="blank">
+                    <?php echo $news->title ?>
+                </h4>
+                <img src="<?php echo $news->urlToImage ?>" alt="Vignette de l'article" id="noImg" class="rounded noIMg">
+                <h5 class="description"> <?php echo $news->description ?></h5>
+                <p> <?php echo $news->content ?></p>
+                <h6>Auteur : <?php echo $news->author ?></h6>
+                <h6>Publié le : <?php echo $news->publishedAt ?></h6>
+                <hr class="md-6 sep_articles">
         </div>
 
             <?php
-            }   
+            } 
             ?>
-
     </div>
-    <!-- <div id="art" class="row col-md-9 articles"></div> -->
-</section>
 
-<!-- <hr class="my-6"> -->
+</section>
 
 <footer>
         <div class="footer">
@@ -139,26 +131,32 @@ $(function() {
         let choice = this.value;
         let newUrl = 'https://newsapi.org/v2/top-headlines?country=fr&category='+choice+'&apiKey=e847ffb86d8147d6a065b4690860cd60';
         let art = $('#art');
+        let errorImg = document.createElement('img');
+        errorImg.src = "no-image.jpg";
+        let newImg = document.getElementById('noImg');
         $.get(newUrl, function(data){
             $('#art').empty();
             $.each(data.articles, function(id, article){
                 art.append(`<h4 class="title">
                         <a class="link" href="${article.url}" target="blank">${article.title}</a>
                         </h4>`)
-                        art.append(`<img src="${article.urlToImage}" alt="Vignette de l'article" class="rounded">`)
+                        if (art.urlToImage !== null){
+                            art.append(`<img src="${article.urlToImage}" alt="Image de l'article" id="noImg" class="rounded">`)                          
+                        } else {
+                            document.getElementById('noImg').style.dipslay="none";
+                            //newImg.appendChild(errorImg); 
+                            };
                         art.append(`<h5 class="description">${article.description}</h5>`)
                         art.append(`<p>${article.content}</p>`)
                         art.append(`<h6 >Auteur : ${article.author}</h6>`)
-                        art.append(`<h6>Publié le : ${article.publishedAt}</h6>`)
+                        art.append(`<h6 id="endArt">Publié le : ${article.publishedAt}</h6>`)
             })
         });
     })
 })
-
 </script>
+
 <script type="text/javascript" src="darkMode.js"></script>
-    
+
 </body>
-
-
 </html>

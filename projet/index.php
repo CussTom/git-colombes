@@ -233,7 +233,7 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
 </header>
 
 <section id="popular">
-<h4>En vedette aujourd'hui :</h4>
+<h4>En vedette :</h4>
    
 <div id="carousel" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
