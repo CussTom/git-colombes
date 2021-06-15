@@ -19,7 +19,6 @@ include_once('pdoConnect.php');
     <title>Science Daily</title>
     <meta name="description" content="Retrouvez toute l'actualité scientifique : articles, vidéos et photos.">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="css/main.css">
@@ -98,7 +97,7 @@ include_once('pdoConnect.php');
         <?php
             foreach ($newsDataSc->articles as $news){  
         ?>
-        <div class="row col-md-12 articles">
+        <div class="">
             <a class="link" href=<?php echo $news->url ?> target="blank">           
                 <h4 class="title">
                 <?php echo $news->title ?>
@@ -109,13 +108,11 @@ include_once('pdoConnect.php');
                 <p> <?php echo $news->content ?></p>
                 <h6>Auteur : <?php echo $news->author ?></h6>
                 <h6>Publié le : <?php echo $news->publishedAt ?></h6>
+        </div>
                 <hr class="md-6 sep_articles">
-            </div>
-
             <?php
             } 
             ?>
-        
     </div>
 
 </section>
@@ -152,6 +149,7 @@ $(function() {
                         art.append(`<p>${article.content}</p>`)
                         art.append(`<h6 >Auteur : ${article.author}</h6>`)
                         art.append(`<h6 id="endArt">Publié le : ${article.publishedAt}</h6>`)
+                        art.append(`<hr class="md-6 sep_articles">  `)
             })
         });
     })

@@ -34,9 +34,9 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
           <h1>Science Today !</h1>
           <p class="slogan">Votre dose d'actualités !</p>
         </div>
-      <div class="buttons">
+      <div class="buttons_home">
           <span style="display:<?php echo ($connected ? '' : 'none'); ?>">
-                <a class="btn btn-outline-info btn-sm" href="articles.php" role="button">Accèder aux articles</a>
+                <a class="btn btn-outline-info btn-sm" href="articles.php" role="button">Articles</a>
 		        <a class="btn btn-outline-danger btn-sm" href="deconnexion.php" role="button">Déconnexion</a>
           </span>
           <span style="display:<?php echo (!$connected ? '' : 'none'); ?>">
