@@ -69,14 +69,14 @@ include_once('pdoConnect.php');
     <img id="banner_articles" class="rounded" src="black_banner.png" >
   </div>
   <hr class="my-6">
-  <p class="news_title">Les actus du <?php setlocale(LC_TIME, 'fr_FR');
+  <p class="news_title">Les actus du <strong><?php setlocale(LC_TIME, 'fr_FR');
     date_default_timezone_set('Europe/Paris');
-    echo utf8_encode(strftime('%A %d %B %Y'));?></p>
+    echo utf8_encode(strftime('%A %d %B %Y'));?></strong></p>
 </header>
 
 <section id="articles">
     <?php 
-    $cats = [["id"=>1, "nom"=>"science"], ["id"=>2, "nom"=>"technology"]];
+    $cats = [["id"=>1, "nom"=>"Science"], ["id"=>2, "nom"=>"Technology"]];
     ?>
 
     <select id="cats">
@@ -99,21 +99,23 @@ include_once('pdoConnect.php');
             foreach ($newsDataSc->articles as $news){  
         ?>
         <div class="row col-md-12 articles">
+            <a class="link" href=<?php echo $news->url ?> target="blank">           
                 <h4 class="title">
-                    <a class="link" href=<?php echo $news->url ?> target="blank">
-                    <?php echo $news->title ?>
+                <?php echo $news->title ?>
                 </h4>
-                <img src="<?php echo $news->urlToImage ?>" alt="Vignette de l'article" id="noImg" class="rounded noIMg">
+            </a>
+                <img src="<?php echo $news->urlToImage ?>" alt="Vignette de l'article" id="noImg" class="rounded noImg">
                 <h5 class="description"> <?php echo $news->description ?></h5>
                 <p> <?php echo $news->content ?></p>
                 <h6>Auteur : <?php echo $news->author ?></h6>
                 <h6>Publié le : <?php echo $news->publishedAt ?></h6>
                 <hr class="md-6 sep_articles">
-        </div>
+            </div>
 
             <?php
             } 
             ?>
+        
     </div>
 
 </section>

@@ -76,7 +76,7 @@ body{
 
 #popular{
     text-decoration: underline;
-    box-sizing : content-box;
+    /* box-sizing : content-box; */
     width: 100%;
 }
 
@@ -91,6 +91,7 @@ h4{
 
 .news_title{
     text-decoration: underline;
+    font-size: 16px;
 }
 
 #carousel{
@@ -136,6 +137,7 @@ img.rounded-sm{
     display: flex;
     height: 300px;
     justify-content: space-around;
+    box-sizing: unset;
 }
 
 .text{
@@ -151,6 +153,10 @@ img.rounded-sm{
 
 hr{
     background-color: var(--hr);
+}
+
+h6, hr{
+    width: 100%;
 }
 
 .hr_articles{
@@ -175,7 +181,7 @@ hr{
 /* MEDIA QUERIES */
 
 /* Taille inférieure à 767px */
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767){
 
     .connect{
         display: flex;
@@ -189,44 +195,65 @@ hr{
 
     .slogan, .slogan_articles{
         display: flex;
-        padding-left: 100px;
-        
+        padding-left: 100px;      
+    }
+    
+    #art{
+        border: 1px solid red;
+        float: right;
     }
 }
-
+/* Taille inférieure à 375px */
 @media screen and (max-width: 375px) {
+    
     .container{
-        display: flex;  
         flex-direction: column;
         flex-wrap: wrap;
+        height: max-content;
+        border: 1px solid yellow;
     }
 
-    h1{
-        display: flex;
-        padding: auto;
+    .footer{
+        background-color: white;
+        color: black;
     }
 
     .connect{
-        flex-direction: column;
-        width: 100%;
+        flex-direction: row;
+        width: 360px;
+        margin: auto;
+        margin-left: -15px;
+    }
+
+    h1{
+        width: fit-content;
+        margin-bottom: 0;
+        padding-top: 10px;
     }
    
     .buttons{
-        flex-direction: column;
-        justify-content: flex-end;
-        flex-wrap: wrap;
-        padding: 45px 0 0px 350px;
-        width: fit-content;
-    }
+        width: max-content;
+        position: absolute;
+        flex-direction: row;
+        align-items: center;
+        top: 90px;
+        left: 180px;
+     }
 
     .slogan, .slogan_articles{
         display: flex;
-        padding-left: 100px;
+        flex-direction: row;
+        width: fit-content;
+        margin: auto;
+        padding-left: 1px;
     }
 
     #darkMode{
         display: flex;
-        padding: -200px;
+        padding-left : -20px;
+        top: 4px;
+        width: 100px;
+        border: var(--text);
     }
 
     #banner_articles.rounded, #articles{
@@ -254,7 +281,7 @@ hr{
         height: auto;
         padding-bottom: 60px;
         top: 0;
-    
+        border: 1px solid blueviolet;
     }
 
     #art{
@@ -262,7 +289,10 @@ hr{
         flex-direction: column;
         align-self: center;
         justify-content: space-between;
-        color: red
+        width: auto;
+        height: auto;
+        /* border: 3px solid rgb(51, 241, 13); */
+
     }
 
     .text{
@@ -271,8 +301,149 @@ hr{
         flex-direction: column;
         justify-content: flex-start;
         display: none;
-        
+        border: 1px solid rgb(10, 228, 231);
+        width: auto;
+        height: auto;
     }
 
- 
+/* Taille entre 376px et 767px */
+@media screen and (max-width: 766px) {
+    
+    .container{
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: max-content;
+        /* border: 1px solid blue; */
+    }
+
+    .connect{
+        flex-direction: row;
+        width: 360px;
+        margin: auto;
+        margin-left: -15px;
+        /* border: 1px solid yellow; */
+    }
+
+    h1{
+        width: fit-content;
+        margin-bottom: 0;
+        padding-top: 10px;
+        /* border: 1px solid green; */
+
+    }
+   
+    .buttons{
+        width: max-content;
+        position: absolute;
+        flex-direction: row;
+        align-items: center;
+        top: 90px;
+        left: 180px;
+     }
+
+    .slogan, .slogan_articles{
+        display: flex;
+        flex-direction: row;
+        width: fit-content;
+        margin: auto;
+        padding-left: 1px;
+    }
+
+    #darkMode{
+        display: flex;
+        padding-left : -20px;
+        top: 4px;
+        width: 100px;
+        border: var(--text);
+    }
+
+    #banner_articles.rounded, #articles{
+        width: 425px;
+        height: 100%;        
+    }
+
+    #banner_articles.rounded{
+        display: flex;
+        margin: auto;
+        width: 100%;
+        height: auto;
+        padding: 0;
+    }
+
+    .news{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    #articles{
+        width: auto;
+        height: auto;
+        padding-bottom: 60px;
+        top: 0;
+        /* border: 1px solid blueviolet; */
+    }
+
+    #art{
+        display: grid;
+        flex-direction: column;
+        align-self: center;
+        justify-content: space-between;
+        width: auto;
+        height: auto;
+        /* border: 3px solid rgb(51, 241, 13); */
+
+    }
+/* Taille inférieure à 414px */
+@media screen and (min-width: 413px) {
+    .container{
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: max-content;
+    }
+
+    .connect{
+        flex-direction: row;
+        width: 360px;
+        margin: auto;
+        margin-left: -15px;
+        border: 1px solid red;
+    }
+
+    h1{
+        width: fit-content;
+        margin-bottom: 0;
+        padding-top: 10px;
+    }
+   
+    .buttons{
+        width: max-content;
+        position: absolute;
+        flex-direction: row;
+        align-items: center;
+        top: 90px;
+        left: 180px;
+        border: 1px solid red;
+     }
+
+    .slogan, .slogan_articles{
+        display: flex;
+        flex-direction: row;
+        width: fit-content;
+        margin: auto;
+        padding-left: 1px;
+    }
+
+    #darkMode{
+        display: flex;
+        padding-left : -20px;
+        top: 4px;
+        width: 100px;
+        border: var(--text);
+    }
+
+}
+     
+    }
 }
