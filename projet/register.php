@@ -1,14 +1,14 @@
 <?php
-
 include_once('constants.php');
 include_once('pdoConnect.php');
 
-session_start();
 // var_dump($_POST);
 // var_dump($_SESSION['code']);
 // var_dump($_POST["captcha"]);
 
-// // on vérifie que captcha est défini et non vide, puis on le compare avec le code renseigné par le user
+session_start();
+
+// on vérifie que captcha est défini et non vide, puis on le compare avec le code renseigné par le user
 if(isset($_POST["captcha"]) && $_POST["captcha"] != " " && $_SESSION["code"] == $_POST["captcha"]) {
   // header('location: index.php?user=ok');
 } else  {  
@@ -18,7 +18,6 @@ if(isset($_POST["captcha"]) && $_POST["captcha"] != " " && $_SESSION["code"] == 
 
 // Tester avec MYSQLI si le user est reconnu ou pas :
 // requête préparée pour vérifier si mail trouvé
-
 $sql = 'SELECT COUNT(*) AS nb FROM users WHERE mail=?';
 $qry = $cnn->prepare($sql);
 $hash = MD5(htmlspecialchars($_POST['mail']));
@@ -43,4 +42,4 @@ elseif ($row['nb'] == 0) {
   $res = $qry->execute(array($hash, $fname, $pass, $land, $active));
   // routage vers index.html avec alerte user créé
   header('location: index.php?user=ok');
- } 
+ }

@@ -16,6 +16,6 @@ imagefill($image, 0, 0, $background);
 imagestring($image, 5, 15, 10,  $code, $forground);
 header("Cache-Control: no-cache, must-revalidate");
 header('Content-type: image/png'); // affiche le contenu en php
-imagepng($image); // rednu final de l'image
+imagepng($image); // rendu final de l'image
 imagedestroy($image); // libère la mémoire allouée
 ?>
