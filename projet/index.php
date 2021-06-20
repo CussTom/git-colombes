@@ -31,7 +31,7 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
 <div class="jumbotron">
       <div class="connect">
         <div class="site-name">
-          <h1>Le NEWSLab !</h1>
+          <h1>Le NEWSLab.</h1>
           <p class="slogan_articles">Votre dose d'actualités !</p>
         </div>
       <div class="buttons_home">

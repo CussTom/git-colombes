@@ -28,7 +28,7 @@ include_once('pdoConnect.php');
 <div class="jumbotron">
       <div class="connect">
         <div class="site-name">
-          <h1>Le NEWSLab !</h1>
+          <h1>Le NEWSLab.</h1>
           <p class="slogan_articles">Votre dose d'actualités !</p>
         </div>
       <div class="buttons">
@@ -65,7 +65,7 @@ include_once('pdoConnect.php');
 
       <hr class="my-6">
   <div class="banner">
-    <img id="banner_articles" class="rounded" src="black_banner.png" >
+        <img id="banner_articles" class="rounded" src="newslab2.png">
   </div>
   <hr class="my-6">
   <p class="news_title">Les actus du <strong><?php setlocale(LC_TIME, 'fr_FR');
@@ -130,21 +130,13 @@ $(function() {
         let choice = this.value;
         let newUrl = 'https://newsapi.org/v2/top-headlines?country=fr&category='+choice+'&apiKey=e847ffb86d8147d6a065b4690860cd60';
         let art = $('#art');
-        let errorImg = document.createElement('img');
-        errorImg.src = "no-image.jpg";
-        let newImg = document.getElementById('noImg');
         $.get(newUrl, function(data){
             $('#art').empty();
             $.each(data.articles, function(id, article){
                 art.append(`<h4 class="title">
                         <a class="link" href="${article.url}" target="blank">${article.title}</a>
                         </h4>`)
-                        if (art.urlToImage !== null){
-                            art.append(`<img src="${article.urlToImage}" alt="Image de l'article" id="noImg" class="rounded">`)                          
-                        } else {
-                            document.getElementById('noImg').style.dipslay="none";
-                            //newImg.appendChild(errorImg); 
-                            };
+                        art.append(`<img src="${article.urlToImage}" alt="Image de l'article"                       class="rounded">`)                          
                         art.append(`<h5 class="description">${article.description}</h5>`)
                         art.append(`<p>${article.content}</p>`)
                         art.append(`<h6 >Auteur : ${article.author}</h6>`)

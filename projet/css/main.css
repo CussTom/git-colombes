@@ -3,13 +3,19 @@
 /* DARK MODE */
 :root {
     --text: #f1f1f1;
-    --background: #1D1D22;
+    --background: #000000;
     --hr: #ECEDEF;
     --btn: yellow;
     --border: #1D1D22;
 }
 
+@font-face {
+    font-family: "Newslab";
+    src: url(fonts/Newslab.otf);
+}
+
 body {
+    font-family: "Newslab";
     background-color: var(--background);
     color: var(--text);
 }
@@ -82,6 +88,7 @@ body {
     width: 100%;
     height: 350px;
     padding: 0;
+    /* visibility: hidden; */
 }
 
 .slogan {
